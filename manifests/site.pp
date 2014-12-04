@@ -63,12 +63,6 @@ node default {
   # node versions
   nodejs::version { 'v0.10': }
 
-  # default ruby versions
-  ruby::version { '2.1.3': }
-  class { 'ruby::global':
-    version => '2.1.3'
-  }
-  
   sublime_text::v2::package { 'Emmet':
     source => 'sergeche/emmet-sublime'
   }
@@ -76,9 +70,11 @@ node default {
   # common, useful packages
   package {
     [
-      'ack',
-      'findutils',
-      'gnu-tar'
+     'ack',
+     'findutils',
+     'gnu-tar',
+     'rbenv',
+     'ruby-build'
     ]:
   }
 
