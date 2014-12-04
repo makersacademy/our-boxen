@@ -57,4 +57,4 @@ github "xquartz",     "1.2.1"
 github "postgresapp", "1.0.0"
 github "heroku",      "2.1.1"
 github "sublime_text", "1.1.0"
-github "chrome",      "1.2.0:
+github "chrome",      "1.2.0"
