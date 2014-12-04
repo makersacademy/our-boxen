@@ -56,13 +56,18 @@ node default {
   include dnsmasq
   include git
   include hub
-  include makersacademy
+  include sublime_text::v2
+  include chrome
 
   # node versions
   nodejs::version { 'v0.10': }
 
   # default ruby versions
   ruby::version { '2.1.3': }
+  
+  sublime_text::v2::package { 'Emmet':
+    source => 'sergeche/emmet-sublime'
+  }
 
   # common, useful packages
   package {
