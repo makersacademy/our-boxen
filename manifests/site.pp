@@ -91,6 +91,11 @@ node default {
     ]:
   }
 
+  exec {'Generate SSH key for Github':
+    command => "ssh-keygen -t rsa -f /Users/${::luser}/.ssh/id_rsa",
+    unless  => "test -e /Users/${::luser}/.ssh/id_rsa"
+  }
+
   file { "${boxen::config::srcdir}/our-boxen":
     ensure => link,
     target => $boxen::config::repodir
