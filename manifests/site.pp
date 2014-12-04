@@ -59,6 +59,8 @@ node default {
   include sublime_text::v2
   include chrome
   include iterm2::stable
+  include postgresql
+  include postgresapp
 
   ruby::version { '2.1.3': }
 

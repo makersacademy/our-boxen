@@ -69,9 +69,9 @@ GITHUBTARBALL
     pkgconfig (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-postgresapp
+  remote: boxen/puppet-postgresql
   specs:
-    postgresapp (1.0.0)
+    postgresql (3.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-repository
@@ -94,6 +94,11 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-sysctl
+  specs:
+    sysctl (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
     xquartz (1.2.1)
@@ -113,6 +118,11 @@ GITHUBTARBALL
   specs:
     module_data (0.0.4)
 
+GITHUBTARBALL
+  remote: steveatkins/puppet-postgresapp
+  specs:
+    postgresapp (9.3.5.0.1)
+
 DEPENDENCIES
   boxen (= 3.7.0)
   chrome (= 1.2.0)
@@ -130,11 +140,13 @@ DEPENDENCIES
   openssl (= 1.0.0)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
-  postgresapp (= 1.0.0)
+  postgresapp (= 9.3.5.0.1)
+  postgresql (= 3.0.1)
   repository (= 2.3.0)
   ruby (= 8.1.7)
   stdlib (= 4.2.1)
   sublime_text (= 1.1.0)
   sudo (= 1.0.0)
+  sysctl (= 1.0.1)
   xquartz (= 1.2.1)
 
