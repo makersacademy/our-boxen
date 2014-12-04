@@ -58,12 +58,16 @@ node default {
   include hub
   include sublime_text::v2
   include chrome
+  include iterm2::stable
 
   # node versions
   nodejs::version { 'v0.10': }
 
   # default ruby versions
   ruby::version { '2.1.3': }
+  class { 'ruby::global':
+    version => '2.1.3'
+  }
   
   sublime_text::v2::package { 'Emmet':
     source => 'sergeche/emmet-sublime'
