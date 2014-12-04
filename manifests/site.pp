@@ -60,6 +60,19 @@ node default {
   include chrome
   include iterm2::stable
 
+  ruby::version { '2.1.3': }
+
+  # seems to be clobbered by /opt/boxen/repo/.ruby-version
+  class { 'ruby::global':
+    version => '2.1.3'
+  }
+
+  ruby_gem { 'Bundler for all rubies':
+    gem     => 'bundler',
+    version => '~> 1.0',
+    ruby_version => '*'
+  }
+  
   # node versions
   nodejs::version { 'v0.10': }
 
@@ -73,8 +86,6 @@ node default {
      'ack',
      'findutils',
      'gnu-tar',
-     'rbenv',
-     'ruby-build'
     ]:
   }
 

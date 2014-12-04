@@ -66,12 +66,12 @@ your boxen:
 ```
 sudo mkdir -p /opt/boxen
 sudo chown ${USER}:staff /opt/boxen
-git clone https://github.com/boxen/our-boxen /opt/boxen/repo
-cd /opt/boxen/repo
-git remote rm origin
-git remote add origin <the location of my new git repository>
-git push -u origin master
+git clone https://github.com/makersacademy/our-boxen /opt/boxen/repo
 ```
+
+You may be prompted to install the Apple Developer Tools. If so, install them and re-run the command. You can click the 'up' arrow instead of typing out the command a second time.
+
+If you get a message saying `the authenticity of host github.com can't be established`, type 'yes' and hit return.
 
 Now that your boxen is bootstrapped, you can run the following to
 install the default configuration from this repo:
@@ -79,6 +79,12 @@ install the default configuration from this repo:
 ```
 cd /opt/boxen/repo
 ./script/boxen
+```
+
+To use the software Boxen has installed for you you must add the boxen script to your environment like so:
+
+```
+echo '[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh' >> ~/.bashrc
 ```
 
 ### Distributing
