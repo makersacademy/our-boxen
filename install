@@ -182,14 +182,14 @@ Dir.chdir BOXEN_REPO do
   end
 end
 
-shellfile = "~/.bashrc"
-ohai "Adding boxen to #{shellfile}"
-add_boxen_to_shell! shellfile
-
 ohai "Running Makers setup..."
 Dir.chdir BOXEN_REPO do
   system "#{BOXEN_REPO}/script/boxen"
 end
+
+shellfile = "~/.bashrc"
+ohai "Adding boxen to #{shellfile}"
+add_boxen_to_shell! shellfile
 
 ohai "Installation successful!"
 puts <<-MAKE
