@@ -63,9 +63,6 @@ node default {
   include postgresapp
   include heroku
 
-  ruby::version { '2.1.3': }
-
-  # seems to be clobbered by /opt/boxen/repo/.ruby-version
   class { 'ruby::global':
     version => '2.1.3'
   }
