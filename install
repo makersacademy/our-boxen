@@ -183,12 +183,11 @@ Dir.chdir BOXEN_REPO do
 end
 
 ohai "Running Makers setup..."
-Dir.chdir BOXEN_REPO do
-  boxen_command = "#{BOXEN_REPO}/script/boxen"
-  # We run this twice because the first invokation always retuns a non-zero exit code
-  Kernel.system boxen_command
-  system boxen_command
-end
+boxen_command = "#{BOXEN_REPO}/script/boxen"
+# We run this twice because the first invokation always retuns a non-zero exit code
+Kernel.system boxen_command
+ohai "Refreshing Makers setup..."
+system boxen_command
 
 shellfile = "~/.bashrc"
 ohai "Adding boxen to #{shellfile}"
