@@ -61,6 +61,7 @@ node default {
   include iterm2::stable
   include postgresql
   include postgresapp
+  include heroku
 
   ruby::version { '2.1.3': }
 
