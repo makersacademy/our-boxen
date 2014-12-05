@@ -184,7 +184,10 @@ end
 
 ohai "Running Makers setup..."
 Dir.chdir BOXEN_REPO do
-  system "#{BOXEN_REPO}/script/boxen"
+  boxen_command = "#{BOXEN_REPO}/script/boxen"
+  # We run this twice because the first invokation always retuns a non-zero exit code
+  Kernel.system boxen_command
+  system boxen_command
 end
 
 shellfile = "~/.bashrc"
@@ -200,7 +203,7 @@ puts <<-MAKE
 |__|_|  (____  /__|_ \\\\___  > 
       \\/     \\/     \\/    \\/  
 
-    Go forth and make!"
+    Go forth and make!
 
 
 MAKE
