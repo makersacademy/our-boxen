@@ -92,7 +92,7 @@ def ensure_directory dir
     sudo "/bin/chmod", "g+rwx", dir
     sudo "/usr/bin/chgrp", "staff", dir
   else
-    sudo "/bin/mkdir", dir
+    sudo "/bin/mkdir", "-p", dir
     sudo "/bin/chmod", "g+rwx", dir
     # the group is set to wheel by default for some reason
     sudo "/usr/bin/chgrp", "staff", dir
