@@ -76,10 +76,6 @@ node default {
   # node versions
   nodejs::version { 'v0.10': }
 
-  sublime_text::v2::package { 'Emmet':
-    source => 'sergeche/emmet-sublime'
-  }
-
   # common, useful packages
   package {
     [
