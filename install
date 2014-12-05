@@ -101,7 +101,7 @@ end
 
 def add_boxen_to_shell! shell
   boxen = "[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh"
-  system "grep -q \"#{boxen}\" #{shell} || echo \"#{boxen}\" >> #{shell}" 
+  system "touch #{shell} && grep -q \"#{boxen}\" #{shell} || echo \"#{boxen}\" >> #{shell}" 
 end
 
 def update_environment! shell
@@ -182,15 +182,14 @@ Dir.chdir BOXEN_REPO do
   end
 end
 
-ohai "Running Makers setup..."
-Dir.chdir BOXEN_REPO do
-  system "#{BOXEN_REPO}/script/boxen"
-end
-
 shellfile = "~/.bashrc"
 ohai "Adding boxen to #{shellfile}"
 add_boxen_to_shell! shellfile
 
+ohai "Running Makers setup..."
+Dir.chdir BOXEN_REPO do
+  system "#{BOXEN_REPO}/script/boxen"
+end
 
 ohai "Installation successful!"
 puts <<-MAKE
