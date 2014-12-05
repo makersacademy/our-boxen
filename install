@@ -99,6 +99,15 @@ def ensure_directory dir
   end
 end
 
+def add_boxen_to_shell! shell
+  boxen = "[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh"
+  system "grep -q \"#{boxen}\" #{shell} || echo \"#{boxen}\" >> #{shell}" 
+end
+
+def update_environment! shell
+  system "source #{shell}"
+end
+
 # Invalidate sudo timestamp before exiting
 at_exit { Kernel.system "/usr/bin/sudo", "-k" }
 
@@ -176,27 +185,25 @@ end
 ohai "Running Makers setup..."
 Dir.chdir BOXEN_REPO do
   system "#{BOXEN_REPO}/script/boxen"
-  # grep -q "echo '[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh' >> ~/.bashrc" "~/.bashrc" && echo "yes" || echo "no"
 end
+
+shellfile = "~/.bashrc"
+ohai "Adding boxen to #{shellfile}"
+add_boxen_to_shell! shellfile
+
 
 ohai "Installation successful!"
-ohai "Next steps"
-
-if macos_version < "10.9" and macos_version > "10.6"
-  `/usr/bin/cc --version 2> /dev/null` =~ %r[clang-(\d{2,})]
-  version = $1.to_i
-  puts "Install the #{Tty.white}Command Line Tools for Xcode#{Tty.reset}: https://developer.apple.com/downloads" if version < 425
-else
-  puts "Install #{Tty.white}Xcode#{Tty.reset}: https://developer.apple.com/xcode" unless File.exist? "/usr/bin/cc"
-end
-
 puts <<-MAKE
                 __            
   _____ _____  |  | __ ____   
- /     \\__  \ |  |/ // __ \
-|  Y Y  \/ __ \|    <\  ___/  
-|__|_|  (____  /__|_ \\___  > 
-      \/     \/     \/    \/  
+ /     \\__   \\ |  |/ // __ \\
+|  Y Y  \\/ __ \\|    <\\  ___/  
+|__|_|  (____  /__|_ \\\\___  > 
+      \\/     \\/     \\/    \\/  
 
     Go forth and make!"
+
+
 MAKE
+
+ohai "Changes will take effect in new terminal windows"
