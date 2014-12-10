@@ -72,6 +72,21 @@ node default {
     version => '~> 1.0',
     ruby_version => '*'
   }
+
+  # rbenv plugin directory needs to be created
+  $plugins_dir = "${boxen::config::home}/rbenv/plugins"
+  file { $plugins_dir:
+    ensure => "directory",
+  }
+
+  # install the rbenv-gem-rehash plugin
+  # negates need to run rbenv-rehash
+  repository { 'rbenv-gem-rehash':
+    source  => 'sstephenson/rbenv-gem-rehash',
+    path    => "${$plugins_dir}/rbenv-gem-rehash",
+    ensure  => '4d7b92de4bdf549df59c3c8feb1890116d2ea985',
+    require => File[$plugins_dir]
+  }
   
   # node versions
   nodejs::version { 'v0.10': }
