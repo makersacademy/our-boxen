@@ -101,7 +101,8 @@ end
 
 def add_boxen_to_shell! shell
   boxen = "[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh"
-  system "touch #{shell} && grep -q \"#{boxen}\" #{shell} || echo \"#{boxen}\" >> #{shell}" 
+  cmd = "touch #{shell} && grep -Fxq \"#{boxen}\" #{shell} || echo \"#{boxen}\" >> #{shell}"
+  system cmd
 end
 
 def update_environment! shell
