@@ -59,8 +59,6 @@ node default {
   include sublime_text::v2
   include chrome
   include iterm2::stable
-  include postgresql
-  include postgresapp
   include heroku
 
   class { 'ruby::global':
