@@ -97,6 +97,7 @@ node default {
      'findutils',
      'gnu-tar',
      'tree',
+     'postgres', # So we get `psql`
     ]:
   }
 

@@ -101,7 +101,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: makersacademy/puppet-postgresql
   specs:
-    postgresql (3.0.2)
+    postgresql (3.0.3)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -135,7 +135,7 @@ DEPENDENCIES
   openssl (= 1.0.0)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
-  postgresql (= 3.0.2)
+  postgresql (= 3.0.3)
   repository (= 2.3.0)
   ruby (= 8.1.7)
   stdlib (= 4.2.1)
