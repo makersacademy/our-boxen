@@ -60,7 +60,6 @@ node default {
   include chrome
   include iterm2::stable
   include heroku
-  include postgresql
 
   class { 'ruby::global':
     version => '2.1.3'
