@@ -62,9 +62,7 @@ node default {
   include heroku
   include atom
 
-  atom::package { 'tabs-to-spaces': }
-  atom::package { 'layout-manager': }
-  atom::package { 'layout-manager': }
+  atom::package { [ 'tabs-to-spaces', 'layout-manager' ]: }
 
   class { 'ruby::global':
     version => '2.1.3'
