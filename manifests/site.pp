@@ -59,7 +59,6 @@ node default {
   include sublime_text::v2
   include chrome
   include iterm2::stable
-  include heroku
   include atom
 
   atom::package { [ 'tabs-to-spaces', 'layout-manager' ]: }
