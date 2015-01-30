@@ -60,6 +60,11 @@ node default {
   include chrome
   include iterm2::stable
   include heroku
+  include atom
+
+  atom::package { 'tabs-to-spaces': }
+  atom::package { 'layout-manager': }
+  atom::package { 'layout-manager': }
 
   class { 'ruby::global':
     version => '2.1.3'
@@ -85,7 +90,7 @@ node default {
     ensure  => '4d7b92de4bdf549df59c3c8feb1890116d2ea985',
     require => File[$plugins_dir]
   }
-  
+
   # node versions
   nodejs::version { 'v0.10': }
 
