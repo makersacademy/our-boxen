@@ -59,9 +59,6 @@ node default {
   include sublime_text::v2
   include chrome
   include iterm2::stable
-  include atom
-
-  atom::package { [ 'tabs-to-spaces', 'layout-manager' ]: }
 
   class { 'ruby::global':
     version => '2.1.3'

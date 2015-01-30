@@ -1,9 +1,4 @@
 GITHUBTARBALL
-  remote: boxen/puppet-atom
-  specs:
-    atom (1.2.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (3.10.1)
@@ -124,7 +119,6 @@ GITHUBTARBALL
     module_data (0.0.4)
 
 DEPENDENCIES
-  atom (= 1.2.0)
   boxen (= 3.10.1)
   brewcask (= 0.0.4)
   chrome (= 1.2.0)
