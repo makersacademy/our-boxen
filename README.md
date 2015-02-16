@@ -30,13 +30,11 @@ This installs the following software:
 
 * Xcode command line tools
 * Ruby 2.1.3
+* Node v0.10
 * Bundler
 * Sublime Text 2
 * iTerm2
 * Chrome browser
-* Postgresql database
-* Postgres browser
-* Heroku Toolbelt
 
 The script will also generate an SSH public key to `~/.ssh/id_rsa.pub`.
 
